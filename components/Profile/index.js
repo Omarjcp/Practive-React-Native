@@ -28,24 +28,25 @@ export default function Profile() {
     setImage(imgResult.uri);
   };
 
-  const openSharedDialog = async () => {
-    let availableShare = await Sharing.isAvailableAsync();
+  /** SHARE IMAGE **/
+  // const openSharedDialog = async () => {
+  //   let availableShare = await Sharing.isAvailableAsync();
 
-    if (!availableShare) {
-      alert("Sharing, is not available in your platform");
-      return;
-    } else {
-      if (image) {
-        await Sharing.shareAsync(image);
-      } else {
-        alert("Select an image in your galery");
-      }
-    }
-  };
+  //   if (!availableShare) {
+  //     alert("Sharing, is not available in your platform");
+  //     return;
+  //   } else {
+  //     if (image) {
+  //       await Sharing.shareAsync(image);
+  //     } else {
+  //       alert("Select an image in your galery");
+  //     }
+  //   }
+  // };
 
   return (
     <View style={styles.container}>
-      <View style={{ width: "100%", height: "50%" }}>
+      <View style={styles.profile}>
         <TouchableOpacity onPress={openImagePicker}>
           {image ? (
             <Image
@@ -63,13 +64,22 @@ export default function Profile() {
             />
           )}
         </TouchableOpacity>
+        <View style={styles.containerEditProfile}>
+          <Text style={styles.name}>Nombre de usuario</Text>
+          <TouchableOpacity style={styles.edit}>
+            <Text style={styles.textEdit}>Edit profile</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      {image ? (
-        <>
-          <View>
-            <Text style={styles.title}>My photo</Text>
-          </View>
-          <View
+    </View>
+  );
+}
+
+{
+  /* SHARE IMAGE */
+}
+{
+  /* <View
             style={{
               width: "100%",
               justifyContent: "center",
@@ -80,13 +90,5 @@ export default function Profile() {
             <TouchableOpacity style={styles.button} onPress={openSharedDialog}>
               <Text style={styles.textButton}>Share image</Text>
             </TouchableOpacity>
-          </View>
-        </>
-      ) : (
-        <View>
-          <Text style={styles.title}>Select an image</Text>
-        </View>
-      )}
-    </View>
-  );
+          </View> */
 }

@@ -12,12 +12,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#cccccc",
   },
-  image: {
-    height: 100,
-    width: 100,
-    borderRadius: 50,
-    // resizeMode: "contain",
-  },
 });
 
 export default styles;
